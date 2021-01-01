@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="Ansible_Netbox_Lab" id="81c57bf3-14dd-49e0-8cba-04f7c960802b" version="1" scripttimeout="300" countdown="0" lock="0" author="Byrn Baker">
+  <description>Setup Netbox and Deploy the network using Netbox as the source of truth</description>
+  <topology>
+    <nodes>
+      <node id="1" name="Netbox" type="qemu" template="linux" image="linux-netbox" console="vnc" cpu="2" cpulimit="0" ram="4096" ethernet="4" uuid="d01a685d-b63b-4562-912c-a06465ca1331" shutdown="1" firstmac="50:00:00:01:00:00" qemu_
+options="-machine type=pc,accel=kvm -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="891" top="861">
+        <interface id="0" name="e0" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="2" name="ISP1" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="7fe9a23b-adce-44e9-a1e7-a157076e857b" firstmac="50:00:00:02:00:
+00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="0" icon="Router.png" config="0" left="714" top="54">
+        <interface id="0" name="Gi0/0" type="ethernet" network_id="2" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="1" name="Gi0/1" type="ethernet" network_id="5" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="2" name="Gi0/2" type="ethernet" network_id="9" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="3" name="Gi0/3" type="ethernet" network_id="13" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="7" name="Gi0/7" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="3" name="ISP2" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="58848738-a90f-407d-b974-36d091c38318" firstmac="50:00:00:03:00:
+00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="30" icon="Router.png" config="0" left="1059" top="54">
+        <interface id="0" name="Gi0/0" type="ethernet" network_id="2" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="1" name="Gi0/1" type="ethernet" network_id="6" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="2" name="Gi0/2" type="ethernet" network_id="10" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="3" name="Gi0/3" type="ethernet" network_id="15" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="7" name="Gi0/7" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="4" name="ISP3" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="b2e620e9-513b-4420-8bfd-e5ff3cd28273" firstmac="50:00:00:04:00:
+00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="60" icon="Router.png" config="0" left="720" top="474">
+        <interface id="0" name="Gi0/0" type="ethernet" network_id="4" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="1" name="Gi0/1" type="ethernet" network_id="10" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="2" name="Gi0/2" type="ethernet" network_id="8" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="3" name="Gi0/3" type="ethernet" network_id="11" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="4" name="Gi0/4" type="ethernet" network_id="17" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="7" name="Gi0/7" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="5" name="ISP4" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="f27198a9-5203-4dc7-9a88-3bc778aa1124" firstmac="50:00:00:05:00:
+00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="90" icon="Router.png" config="0" left="1071" top="474">
+        <interface id="0" name="Gi0/0" type="ethernet" network_id="4" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="1" name="Gi0/1" type="ethernet" network_id="9" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="2" name="Gi0/2" type="ethernet" network_id="7" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="3" name="Gi0/3" type="ethernet" network_id="12" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="4" name="Gi0/4" type="ethernet" network_id="19" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="7" name="Gi0/7" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="6" name="ISP-RR" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="3256b4a8-6c16-4615-b083-0cf4437be7a7" firstmac="50:00:00:06:0
+0:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="120" icon="Router.png" config="0" left="894" top="342">
+        <interface id="0" name="Gi0/0" type="ethernet" network_id="12" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="1" name="Gi0/1" type="ethernet" network_id="11" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="7" name="Gi0/7" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="7" name="ISP6" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="4e39891a-1c34-4646-a90f-4f6b72e90004" firstmac="50:00:00:07:00:
+00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="150" icon="Router.png" config="0" left="1068" top="237">
+        <interface id="0" name="Gi0/0" type="ethernet" network_id="3" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="1" name="Gi0/1" type="ethernet" network_id="6" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="2" name="Gi0/2" type="ethernet" network_id="7" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="3" name="Gi0/3" type="ethernet" network_id="16" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="7" name="Gi0/7" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="8" name="ISP7" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="2f6b66ef-5c96-4d88-9ee1-9836710a7838" firstmac="50:00:00:08:00:
+00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="180" icon="Router.png" config="0" left="714" top="237">
+        <interface id="0" name="Gi0/0" type="ethernet" network_id="3" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="1" name="Gi0/1" type="ethernet" network_id="5" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="2" name="Gi0/2" type="ethernet" network_id="8" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="3" name="Gi0/3" type="ethernet" network_id="14" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="7" name="Gi0/7" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="9" name="ISP-PE1" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="a5fd9965-b55c-46d0-9cf0-2cc638202592" firstmac="50:00:00:09:
+00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="210" icon="Router.png" config="0" left="369" top="57">
+        <interface id="0" name="Gi0/0" type="ethernet" network_id="13" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="1" name="Gi0/1" type="ethernet" network_id="26" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="7" name="Gi0/7" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="10" name="ISP-PE2" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="a541088e-0f2d-402f-aa92-e0ca0fbd88b5" firstmac="50:00:00:0a
+:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="240" icon="Router.png" config="0" left="1425" top="57"
+>
+        <interface id="0" name="Gi0/0" type="ethernet" network_id="15" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="7" name="Gi0/7" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="11" name="ISP-PE3" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="fd989cb4-d312-4fe1-932c-3120321e36cb" firstmac="50:00:00:0b
+:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="270" icon="Router.png" config="0" left="366" top="243"
+>
+        <interface id="0" name="Gi0/0" type="ethernet" network_id="14" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="1" name="Gi0/1" type="ethernet" network_id="27" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="7" name="Gi0/7" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="12" name="ISP-PE4" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="e1257be9-1979-4327-af4d-ef3e408c8e1b" firstmac="50:00:00:0c
+:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="300" icon="Router.png" config="0" left="1422" top="228
+">
+        <interface id="0" name="Gi0/0" type="ethernet" network_id="16" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="7" name="Gi0/7" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="14" name="vMX-VCP" type="qemu" template="vmxvcp" image="vmxvcp-20.2R1.10-domestic-VCP" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="2" uuid="10987ff2-c9eb-49d9-b2a0-dc02410678e7" firstmac="50:00:00:0e:00
+:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -cpu host" qemu_version="4.1.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="JunipervQFXre.png" config="0" left="1419" top="351">
+        <interface id="0" name="fxp0" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="1" name="int" type="ethernet" network_id="18" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="15" name="vMX-VFP" type="qemu" template="vmxvfp" image="vmxvfp-20.2R1.10-domestic-VFP" console="telnet" cpu="3" cpulimit="0" ram="4096" ethernet="12" uuid="5a6ae524-2d86-4e04-99a5-58f93df27e94" firstmac="50:00:00:0f:0
+0:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -cpu host" qemu_version="4.1.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="JunipervQFXpfe.png" config="0" left="1419" top="456">
+        <interface id="1" name="int" type="ethernet" network_id="18" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="2" name="ge-0/0/0" type="ethernet" network_id="19" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="4" name="ge-0/0/2" type="ethernet" network_id="29" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="13" name="ISP-PE5" type="qemu" template="xrv9k" image="xrv9k-fullk9-7.1.2" console="telnet" cpu="4" cpulimit="0" ram="16384" ethernet="10" uuid="4c324335-8090-4f36-be78-9c139e7d68fa" firstmac="50:00:00:0d:00:00" qemu_
+options="-enable-kvm -smbios type=1,manufacturer=&quot;cisco&quot;,product=&quot;Cisco IOS XRv 9000&quot; -machine type=pc,accel=kvm,usb=off -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc,driftfix=slew -global
+ kvm-pit.lost_tick_policy=discard -no-hpet -realtime mlock=off -no-shutdown -boot order=c  -serial null  -serial null   -serial null -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="XR.png
+" config="0" left="378" top="462">
+        <interface id="0" name="Mgmt0/0/CPU0/0" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="3" name="Gi0/0/0/0" type="ethernet" network_id="17" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="20" name="CloudVisionPortal" type="qemu" template="cvp" image="cvp-2020-2-3" console="vnc" cpu="16" cpulimit="0" ram="22528" ethernet="2" uuid="a6590091-19e5-48bf-8fb4-2966b23a730b" shutdown="1" firstmac="50:00:00:14:
+00:00" qemu_options="-machine type=pc,accel=kvm -vga std -usbdevice tablet -boot order=dc" qemu_version="2.4.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="CVP.png" config="0" left="477" top="840">
+        <interface id="0" name="e0" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="1" name="e1" type="ethernet" network_id="28" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="16" name="DC1-SPINE1" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="18" uuid="08c9db67-2bb1-43ec-80fc-ae6931607259" firstmac="50:00:00:10:00:00" qemu_optio
+ns="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="9" top="144">
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="28" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="1" name="Eth1" type="ethernet" network_id="20" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="21" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="3" name="Eth3" type="ethernet" network_id="24" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="17" name="DC1-SPINE2" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="18" uuid="756bfac1-72b9-44be-962c-f83519b556bf" firstmac="50:00:00:11:00:00" qemu_optio
+ns="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="195" top="144">
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="28" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="1" name="Eth1" type="ethernet" network_id="22" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="23" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="3" name="Eth3" type="ethernet" network_id="25" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="18" name="DC1-LEAF1" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="18" uuid="c88e569a-824d-4705-960d-08b1252cf92b" firstmac="50:00:00:12:00:00" qemu_option
+s="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="12" top="294">
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="28" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="1" name="Eth1" type="ethernet" network_id="20" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="22" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="19" name="DC1-LEAF2" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="18" uuid="74a17fb2-ac08-4965-b3d0-b2a319bedf69" firstmac="50:00:00:13:00:00" qemu_option
+s="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="195" top="297">
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="28" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="1" name="Eth1" type="ethernet" network_id="21" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="23" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="21" name="DC1-EDGE" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="18" uuid="59c1b9a5-89a0-48fd-9992-8d64c37a1057" firstmac="50:00:00:15:00:00" qemu_options
+="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="123" top="3">
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="28" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="1" name="Eth1" type="ethernet" network_id="24" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="25" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="3" name="Eth3" type="ethernet" network_id="26" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="4" name="Eth4" type="ethernet" network_id="27" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="22" name="vIOS" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="4" uuid="21cd0f19-dc1f-4e10-b38a-1ca652a4f7e1" firstmac="50:00:00:16:00
+:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="0" icon="Router.png" config="0" left="528" top="558">
+        <interface id="0" name="Gi0/0" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="1" name="Gi0/1" type="ethernet" network_id="28" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="23" name="TestR1" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="4" uuid="55b191c7-d971-4f32-8321-41dfa807a5bb" firstmac="50:00:00:17:
+00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="0" icon="Router.png" config="0" left="1701" top="465">
+        <interface id="0" name="Gi0/0" type="ethernet" network_id="29" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="1" name="Gi0/1" type="ethernet" network_id="30" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="3" name="Gi0/3" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="24" name="TestSW1" type="qemu" template="viosl2" image="viosl2-adventerprisek9-m.03.2017" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="710b7a14-7bd7-4940-a507-b22b89fc14ec" firstmac="50:00:00:18
+:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="0" icon="Switch L3.png" config="0" left="1701" top="57
+0">
+        <interface id="0" name="Gi0/0" type="ethernet" network_id="30" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="6" name="Gi1/2" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="7" name="Gi1/3" type="ethernet" network_id="31" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="25" name="TestSW2" type="qemu" template="viosl2" image="viosl2-adventerprisek9-m.03.2017" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="3176ce79-2160-478b-bc72-9e6aa4d6eb34" firstmac="50:00:00:19
+:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="0" icon="Switch L3.png" config="0" left="1701" top="69
+6">
+        <interface id="6" name="Gi1/2" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="7" name="Gi1/3" type="ethernet" network_id="31" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="pnet4" name="OOB_MGMT" left="888" top="546" style="Solid" linkstyle="Straight" color="" label="" visibility="1" icon="cloud_sm.png"/>
+      <network id="2" type="bridge" name="Net-vIOS2iface_0" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="3" type="bridge" name="Net-ISP7iface_0" left="774" top="277" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="4" type="bridge" name="Net-ISP3iface_0" left="780" top="514" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="5" type="bridge" name="Net-ISP1iface_1" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="6" type="bridge" name="Net-ISP2iface_1" left="1119" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="7" type="bridge" name="Net-ISP6iface_2" left="1128" top="277" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="8" type="bridge" name="Net-ISP7iface_2" left="774" top="277" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="9" type="bridge" name="Net-ISP1iface_2" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="10" type="bridge" name="Net-ISP2iface_2" left="1119" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="11" type="bridge" name="Net-ISP3iface_3" left="780" top="514" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="12" type="bridge" name="Net-ISP-RRiface_0" left="954" top="382" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="13" type="bridge" name="Net-ISP1iface_3" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="14" type="bridge" name="Net-ISP7iface_3" left="774" top="277" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="15" type="bridge" name="Net-ISP2iface_3" left="1119" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="16" type="bridge" name="Net-ISP6iface_3" left="1128" top="277" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="18" type="bridge" name="Net-vMX-VFPiface_1" left="1371" top="490" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="19" type="bridge" name="Net-vMX-VFPiface_2" left="1371" top="490" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="17" type="bridge" name="Net-ISP-PE5iface_3" left="438" top="502" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="20" type="bridge" name="Net-DC1-SPINE1iface_1" left="66" top="283" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="21" type="bridge" name="Net-DC1-SPINE1iface_2" left="66" top="283" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="22" type="bridge" name="Net-DC1-SPINE2iface_1" left="252" top="283" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="23" type="bridge" name="Net-DC1-SPINE2iface_2" left="252" top="283" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="24" type="bridge" name="Net-DC1-EDGEiface_1" left="180" top="142" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="25" type="bridge" name="Net-DC1-EDGEiface_2" left="180" top="142" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="26" type="bridge" name="Net-ISP-PE1iface_1" left="429" top="97" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="27" type="bridge" name="Net-ISP-PE3iface_1" left="426" top="283" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="28" type="bridge" name="Arista-MGMT" left="111" top="531" style="Solid" linkstyle="Straight" color="" label="" visibility="1" icon="lan.png"/>
+      <network id="29" type="bridge" name="Net-TestR1iface_0" left="1761" top="505" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="30" type="bridge" name="Net-TestSW1iface_0" left="1761" top="610" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      <network id="31" type="bridge" name="Net-TestSW1iface_7" left="1761" top="610" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+    </networks>
+  </topology>
+  <objects>
+    <textobjects>
+      <textobject id="1" name="ISP-Foot-Print" type="square">
+        <data>PGRpdiBpZD0iY3VzdG9tU2hhcGUxIiBjbGFzcz0iY3VzdG9tU2hhcGUgY29udGV4dC1tZW51IGp0ay1tYW5hZ2VkIGp0ay1kcmFnZ2FibGUgdWktc2VsZWN0ZWUganRrLWRyYWctc2VsZWN0ZWQgdWktcmVzaXphYmxlIHVpLXNlbGVjdGVkIGZyZWUtc2VsZWN0ZWQgZHJhZ3N0b3BwZWQiIGR
+hdGEtcGF0aD0iMSIgc3R5bGU9ImRpc3BsYXk6IGlubGluZTsgei1pbmRleDogOTk5OyBwb3NpdGlvbjogYWJzb2x1dGU7IGxlZnQ6IDM1MXB4OyB0b3A6IDQ4cHg7IHdpZHRoOiBhdXRvOyBoZWlnaHQ6IGF1dG87IiBuYW1lPSJJU1AtRm9vdC1QcmludCI+PHN2ZyB3aWR0aD0iMTE0MCIgaGVpZ2h0PSI0Nzku
+NSI+PHJlY3QgeD0iMSIgeT0iMSIgcng9IjIwIiByeT0iMjAiIHdpZHRoPSIxMTM4IiBoZWlnaHQ9IjQ3Ny41IiBmaWxsPSIjNzNmZGZmIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZT0iIzczZmRmZiIgc3R5bGU9Ii0tZGFya3JlYWRlci1pbmxpbmUtZmlsbDojMDA4NTg3OyAtLWRhcmtyZWFkZXItaW5saW5lL
+XN0cm9rZTojNmFmZGZmOyIgZGF0YS1kYXJrcmVhZGVyLWlubGluZS1maWxsPSIiIGRhdGEtZGFya3JlYWRlci1pbmxpbmUtc3Ryb2tlPSIiPjwvcmVjdD5Tb3JyeSwgeW91ciBicm93c2VyIGRvZXMgbm90IHN1cHBvcnQgaW5saW5lIFNWRy48L3N2Zz48ZGl2IGNsYXNzPSJ1aS1yZXNpemFibGUtaGFuZGxlIH
+VpLXJlc2l6YWJsZS1lIiBzdHlsZT0iei1pbmRleDogOTA7Ij48L2Rpdj48ZGl2IGNsYXNzPSJ1aS1yZXNpemFibGUtaGFuZGxlIHVpLXJlc2l6YWJsZS1zIiBzdHlsZT0iei1pbmRleDogOTA7Ij48L2Rpdj48ZGl2IGNsYXNzPSJ1aS1yZXNpemFibGUtaGFuZGxlIHVpLXJlc2l6YWJsZS1zZSB1aS1pY29uIHV
+pLWljb24tZ3JpcHNtYWxsLWRpYWdvbmFsLXNlIiBzdHlsZT0iei1pbmRleDogOTA7Ij48L2Rpdj48L2Rpdj4=</data>
+      </textobject>
+    </textobjects>
+  </objects>
+</lab>

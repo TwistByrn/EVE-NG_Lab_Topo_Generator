@@ -1,0 +1,13 @@
+---
+lab:
+  name: Jinja Generated lab
+  version: 1
+  author: Byrn Baker
+  description: This lab topology is being generated with Ansible and Jinja2 templates
+  topology:
+    node1: {id: 1, name: R1, int_local_id: 0, network_id: 1, type: qemu, template: vios, image: vios-adventerprisek9-m.SPA.156-2.T, console: telnet, cpu: 1, cpulimit: 0, ram: 1024, ethernet: 8 }
+    node2: {id: 2, name: R2, int_local_id: 0, network_id: 1, type: qemu, template: vios, image: vios-adventerprisek9-m.SPA.156-2.T, console: telnet, cpu: 1, cpulimit: 0, ram: 1024, ethernet: 8 }
+  network:
+    net_1: {id: 1, type: bridge, name: "R1_to_R2", visibility: 0, icon: "lan.png" }
+          
+          
