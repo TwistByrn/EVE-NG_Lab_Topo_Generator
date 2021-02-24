@@ -37,7 +37,9 @@ lab:
           net_id: 111
         - name: Gi0/7
           int_id: 7
-          net_id: 1  
+          net_id: 1
+
+```
 UUIDs are generated somewhat randomly with the use of the random range function in Jinja combined with the function to convert that number to a UUID.
 
 The device mac address will simply increment the 3rd octet from the right side by 1 number each time the Jinja template loops.
