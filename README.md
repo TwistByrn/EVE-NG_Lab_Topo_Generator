@@ -5,6 +5,8 @@ Next serializing the details needed to make the topology should make it a little
 
 For now, the topology_details.yml will be filled out manually with the routers or switch templates available to you in your EVE environment. 
 
+The pb.gen.topology.yml will create a .unl file under eve_lab_topo folder that can be copied to your /opt/unetlab/labs/ directory on your EVE server.
+
 ## Here is an example of the topology_details.yml. For more than 2 nodes simply copy the contents of Node1 or Node2 and increment the number however you see fit.
 ### net_id will be the network ID that physically connects your virtual routers and switches and should be referenced in the Network section of the topology_details.yml file.
 
