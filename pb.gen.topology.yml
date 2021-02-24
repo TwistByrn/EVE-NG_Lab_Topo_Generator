@@ -1,0 +1,14 @@
+---
+- name: Generate Configuration for all routers
+  gather_facts: no
+  connection: local
+  hosts: localhost
+  vars:
+    time: "{{ lookup('pipe', 'date +%Y-%m-%d-%H-%M-%S') | random}}"
+  tasks:
+  - include_vars: "topology_details.yml"
+  - name: create the xml for the eve lab
+    file: path=eve_lab_topo  state=directory
+    run_once: true
+  - name: Generate Configuration
+    template: src=lab_topo.j2 dest=eve_lab_topo/eveng_lab_by_ansible_test.unl

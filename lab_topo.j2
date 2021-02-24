@@ -1,0 +1,24 @@
+#jinja2: lstrip_blocks: "True", trim_blocks: "True"
+{# Jinja2 template to generate a EVE-NG lab Topology #}
+{% set count = namespace(value=0) %}
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="{{ lab.name }}" id="{{ range(1,100) | random | to_uuid }}" version="{{ lab.version }}" scripttimeout="300" countdown="0" lock="0" author="{{ lab.author }}">
+  <description>{{ lab.description }}</description>
+  <topology>
+    <nodes>
+    {% for node in lab.topology %}
+      {% include 'node_templates/'+node.template+".j2" %}
+        {% set count.value = count.value + 1 %}
+      {% for int in node.interfaces %}        
+        <interface id="{{ int.int_id }}" name="{{ int.name }}" type="ethernet" network_id="{{ int.net_id }}" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      {% endfor %}
+      </node>
+    {% endfor %}
+    </nodes>
+      <networks>
+{% for net,net_attr in lab.network.items() %}
+        <network id="{{ net_attr.net_id }}" type="{{ net_attr.type }}" name="{{ net }}" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="{{ net_attr.visibility }}" icon="{{ net_attr.icon }}"/>
+{% endfor %}
+      </networks>
+  </topology>
+</lab>

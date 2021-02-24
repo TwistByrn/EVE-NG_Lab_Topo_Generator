@@ -1,0 +1,26 @@
+---
+- name: Run Router Pre-Checks
+  hosts: ios-routers
+  gather_facts: false
+  connection: local
+
+  tasks:  
+  - name: "Define provider"
+    set_fact: 
+      provider: 
+        host: "{{ inventory_hostname }}"
+        username: "{{ ansible_user }}"
+        password: "{{ ansible_ssh_pass }}"
+
+  - name: Gather IOS facts
+    register: iosfacts_output
+    ios_facts:
+      provider: "{{ provider }}"
+
+  - file: path=gather_facts state=directory
+  - copy: content="{{ iosfacts_output | to_nice_json }}" dest="gather_facts/iosfacts.json"
+
+  - name: build appended file
+    lineinfile:
+      line: "{{ iosfacts_output | to_nice_json }}"
+      path: "gather_facts/iosfacts.json"
