@@ -7,8 +7,8 @@ For now, the topology_details.yml will be filled out manually with the routers o
 
 The pb.gen.topology.yml will create a .unl file under eve_lab_topo folder that can be copied to your /opt/unetlab/labs/ directory on your EVE server.
 
-## Here is an example of the topology_details.yml. For more than 2 nodes simply copy the contents of Node1 or Node2 and increment the number however you see fit.
-### net_id will be the network ID that physically connects your virtual routers and switches and should be referenced in the Network section of the topology_details.yml file.
+* Here is an example of the topology_details.yml. For more than 2 nodes simply copy the contents of Node1 or Node2 and increment the number however you see fit.
+* net_id will be the network ID that physically connects your virtual routers and switches and should be referenced in the Network section of the topology_details.yml file.
 
 ```
 ---
@@ -45,5 +45,4 @@ lab:
 * UUIDs are generated somewhat randomly with the use of the random range function in Jinja combined with the function to convert that number to a UUID.
 * The device mac address will simply increment the 3rd octet from the right side by 1 number each time the Jinja template loops.
 * The items under the nodes like "Name" and "id" should be unique. 
-* "Netwwork_id" is used to reference the network created for the P2P connection of Node1 to Node2 etc. 
-* This should match a single network "id" under the network portion. With EVE-NG for each P2P connection a single network bridge is created and hidden on the topology. Therefore the "visibility" item is included as you can create other networks that are mapped to physical interfaces on the EVE Host for example. You would make those visible on the topology.
+* Network_id -  is used to reference the network created for the P2P connection of Node1 to Node2 etc. Network_id should match a single network "id" under the network portion. With EVE-NG for each P2P connection a single network bridge is created and hidden on the topology. Therefore the "visibility" item is included as you can create other networks that are mapped to physical interfaces on the EVE Host for example. These types of networks you might want to mark visible on the topology.
