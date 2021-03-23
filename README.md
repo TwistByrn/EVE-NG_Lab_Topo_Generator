@@ -9,6 +9,7 @@ Below is an example of how to format the ```topology_details.yml```. Jinja templ
 
 ## How to use the Ansible Playbook
 Works with any ansible version 2.9 and up.
+* usage - ```ansible-playbook pb.gen.topology.yml```
 * name, version, author, description - This is the info that will appear in the EVE gui for the lab
 * topology - Everything nested under topology will be the devices that will appear in your lab. I will refer to these nested elements with the follow structure - ```topology["foo"]["bar"]```
 * ```topology["name"]``` - This will be the name of the node placed on the topology map.
