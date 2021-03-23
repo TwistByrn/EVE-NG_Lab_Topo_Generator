@@ -5,8 +5,23 @@ For now, the topology_details.yml will be filled out manually with the router or
 
 The pb.gen.topology.yml will create the .unl file under the ```/eve_lab_topo``` folder. This file can be copied to your ```/opt/unetlab/labs/``` directory on your EVE server.
 
-Below is an example of how to format the ```topology_details.yml```. Jinja templates are used to format the UNL file and I have created several templates for common router and switch templates I use in EVENG. 
-* net_id is the network ID that physically connects your virtual routers and switches and should be referenced in the Network section of the topology_details.yml at the bottom of the file.
+Below is an example of how to format the ```topology_details.yml```. Jinja templates are used to format the UNL file and I have created several templates for common router and switch templates I use in EVENG. These are found in the ```/node_templates``` folder.
+
+## How to use the Ansible Playbook
+Works with any ansible version 2.9 and up.
+* name, version, author, description - This is the info that will appear in the EVE gui for the lab
+* topology - Everything nested under topology will be the devices that will appear in your lab. I will refer to these nested elements with the follow structure - ```topology["foo"]["bar"]```
+* ```topology["name"]``` - This will be the name of the node placed on the topology map.
+* ```topology["id"]``` - This numner is the ID given to the device EVE typically starts at 1 and incriments up as you add nodes to the topology
+* ```topology["template"]``` - This should coincide with your installed node templates and should match the name used within your EVE installation.
+* ```topology["ethernet"]``` - This sets the number of ethernet interfaces on your node. Note that some of the KVMs might require a specific number and you should observe thos corner cases. Ex. XRv9000 and vMX-CP, vMX-FP uses several interfaces for internal communication within the KVM. 
+* ```topology["map_left"] topology["map_right"]``` - This will dictate where on the Topology map the node will appear. 
+* ```topology["interfaces"]["name"]``` - The name of the interface of the template you are using. It is important to observe the node template naming conventions
+* ```topology["interfaces"]["int_id"]``` - This is the id given by eve to each interface. This always starts at zero regardless of the interfaces naming convention.
+* ```topology["interfaces"]["net_id"]``` - This refers to the bridge that is created and listed at the bottom of the UNL and the ```topology_details.yml``` file. For each Point to point connection there is an invisible bridge created on the EVE topology map. You can utilize any numbering that you wish. I've been able to use 3 digit numbers with no issues so far. I've chosen to use the node ID numbers to keep the connection straight in this example, but feel free to use whatever suits you. Keep in mind that the bridge number used here will be reused in the network section at the bottom of this example.
+## Other things to note
+* UUIDs are generated somewhat randomly with the use of the random range function in Jinja combined with the function to convert that number to a UUID.
+* The device mac address will simply increment the 3rd octet from the right side by 1 number each time the Jinja template loops.
 
 ```
 ---
@@ -309,8 +324,9 @@ lab:
     R7_to_PE3: {net_id: 733, type: bridge, visibility: 0, icon: "lan.png" }
     PE6-CP_to_PE-FP: { net_id: 1666, type: bridge, visibility: 0, icon: "lan.png"}
 ```
-
-* UUIDs are generated somewhat randomly with the use of the random range function in Jinja combined with the function to convert that number to a UUID.
-* The device mac address will simply increment the 3rd octet from the right side by 1 number each time the Jinja template loops.
-* The items under the nodes like "Name" and "id" should be unique. 
-* Network_id -  is used to reference the network created for the P2P connection of Node1 to Node2 etc. Network_id should match a single network "id" under the network portion. With EVE-NG for each P2P connection a single network bridge is created and hidden on the topology. Therefore the "visibility" item is included as you can create other networks that are mapped to physical interfaces on the EVE Host for example. These types of networks you might want to mark visible on the topology.
+### How to read and create the network section 
+Formating the network this way allowed for a more concise looking format for the bridges that are typically created in most EVE topologies.
+* ```network["MGMT"]["net_id"]``` - This references the above ```topology["interfaces"]["net_id"]```. This ensure those nodes are connected to the same bridge.
+* ```network["MGMT"]["net_type"]``` - This tells EVE that this is a bridge. EVE has a few selection from its network options like switch and hub. You will notice in my example most of the types are bridge and one is pnet4. The pnet4 references one of the physical interfaces on the EVE host and can be used for outside connectivity if you wish. Just match it with the available PNETs on your host machine.
+* ```network["MGMT"]["visibility"]``` - This is used to show the icon of the bridge or network on your topology map. EVE hides the point to point bridges to reduce clutter.
+* ```network["MGMT"]["icon"]``` - You can set the icon to anything that is available in your EVE installation. EVE has lots of default images and you just need to reference the correct file name. No path is needed.
