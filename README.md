@@ -5,7 +5,7 @@ For now, the topology_details.yml will be filled out manually with the router or
 
 The pb.gen.topology.yml will create the .unl file under the ```/eve_lab_topo``` folder. This file can be copied to your ```/opt/unetlab/labs/``` directory on your EVE server.
 
-Below is an example of how to format the topology_details.yml. Jinja templates are used to format the UNL file and I have created several templates for common router and switch templates I use in EVENG. 
+Below is an example of how to format the ```topology_details.yml```. Jinja templates are used to format the UNL file and I have created several templates for common router and switch templates I use in EVENG. 
 * net_id is the network ID that physically connects your virtual routers and switches and should be referenced in the Network section of the topology_details.yml at the bottom of the file.
 
 ```
