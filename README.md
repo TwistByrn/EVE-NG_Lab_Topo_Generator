@@ -42,10 +42,8 @@ lab:
           net_id: 1
 ```
 
-UUIDs are generated somewhat randomly with the use of the random range function in Jinja combined with the function to convert that number to a UUID.
-
-The device mac address will simply increment the 3rd octet from the right side by 1 number each time the Jinja template loops.
-
-The items under the nodes like "Name" and "id" should be unique. 
-"Netwwork_id" is used to reference the network created for the P2P connection of Node1 to Node2 etc. 
-This should match a single network "id" under the network portion. With EVE-NG for each P2P connection a single network bridge is created and hidden on the topology. Therefore the "visibility" item is included as you can create other networks that are mapped to physical interfaces on the EVE Host for example. You would make those visible on the topology.
+* UUIDs are generated somewhat randomly with the use of the random range function in Jinja combined with the function to convert that number to a UUID.
+* The device mac address will simply increment the 3rd octet from the right side by 1 number each time the Jinja template loops.
+* The items under the nodes like "Name" and "id" should be unique. 
+* "Netwwork_id" is used to reference the network created for the P2P connection of Node1 to Node2 etc. 
+* This should match a single network "id" under the network portion. With EVE-NG for each P2P connection a single network bridge is created and hidden on the topology. Therefore the "visibility" item is included as you can create other networks that are mapped to physical interfaces on the EVE Host for example. You would make those visible on the topology.
