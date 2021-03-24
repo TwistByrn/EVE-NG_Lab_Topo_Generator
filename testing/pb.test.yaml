@@ -1,9 +1,0 @@
----
-- name: Generate Configuration for all routers
-  gather_facts: no
-  connection: local
-  hosts: localhost
-  tasks:
-  - include_vars: "lab_facts.yaml"
-  - name: Generate Topology File
-    template: src=test.j2 dest=topology_file.yaml
