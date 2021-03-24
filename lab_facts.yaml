@@ -1,21 +1,3 @@
-# EVE-NG_Lab_Topo_Generator
-The idea behind this effort is firstly to quickly generate a lab topology with all the connectivity in place. This helps avoid the clicking and selecting and refreshing of the EVE topology page.
-
-For now, the topology_details.yml will be filled out manually with the router or switch templates available to you in your EVE environment. 
-
-The pb.gen.topology.yml will create the .unl file under the ```/eveng_unl_file``` folder. This file can be copied to your ```/opt/unetlab/labs/``` directory on your EVE server.
-
-Below is an example of how to format the ```lab_facts.yaml```. Jinja templates are used to format the UNL file and I have created several templates for common router and switch templates I use in EVENG. These are found in the ```/node_templates``` folder.
-
-## How to use the Ansible Playbook
-Works with any ansible version 2.9 and up.
-* usage - ```ansible-playbook pb.gen.topology.yml```
-* I updated the playbook changed up the YAML file used to create the UNL file. This is a little shorter from a total lines perspective. Also removed some keys that were not needed and instead placed those into the Jinja template because they should be incremented up anyway. This way the incremental increase is done for you.
-* A delay count has been added to the templates so that you can simply turn on all nodes in EVENG at the same time and they will start in 30 second increments and hopefully not clog your CPU.
-* UUIDs are generated somewhat randomly with the use of the random range function in Jinja combined with the function to convert that number to a UUID.
-* The device mac address will simply increment the 3rd octet from the right side by 1 number each time the Jinja template loops.
-
-```
 #  attempting to make create the topology_details a bit easier. I want a smaller file to fill in for a large topology
 ---
 #  Fill in the name of the lab as you want it to appear in EVENG
@@ -121,10 +103,3 @@ network:
     R4_to_PE2: {net_id: 466, type: bridge, visibility: 0, icon: "lan.png" }
     R6_to_R7: {net_id: 67, type: bridge, visibility: 0, icon: "lan.png" }
     PE2-CP_to_PE2-FP: { net_id: 1666, type: bridge, visibility: 0, icon: "lan.png"}
-```
-### How to read and create the network section 
-Formating the network this way allowed for a more concise looking format for the bridges that are typically created in most EVE topologies.
-* ```network["MGMT"]["net_id"]``` - This references the above ```topology["interfaces"]["net_id"]```. This ensure those nodes are connected to the same bridge.
-* ```network["MGMT"]["net_type"]``` - This tells EVE that this is a bridge. EVE has a few selection from its network options like switch and hub. You will notice in my example most of the types are bridge and one is pnet4. The pnet4 references one of the physical interfaces on the EVE host and can be used for outside connectivity if you wish. Just match it with the available PNETs on your host machine.
-* ```network["MGMT"]["visibility"]``` - This is used to show the icon of the bridge or network on your topology map. EVE hides the point to point bridges to reduce clutter.
-* ```network["MGMT"]["icon"]``` - You can set the icon to anything that is available in your EVE installation. EVE has lots of default images and you just need to reference the correct file name. No path is needed.

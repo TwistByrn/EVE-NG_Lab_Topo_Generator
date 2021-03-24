@@ -1,0 +1,6 @@
+- include_vars: "eve_garbage/topology_details.yaml"
+- name: create a directory for the EVENG UNL file
+  file: path=eveng_unl_file  state=directory
+  run_once: true
+- name: "Generating the UNL file to copy to your EVENG host"
+  template: src=lab_topo.j2 dest=eveng_unl_file/ansible_generated.unl

@@ -1,0 +1,4 @@
+- name: Cleaning up after myself
+  file:
+    state: absent
+    path: eve_garbage

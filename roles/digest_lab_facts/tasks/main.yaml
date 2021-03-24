@@ -1,0 +1,7 @@
+- include_vars: "lab_facts.yaml"
+- name: Creating a directory for garbage you won't need
+  file: path=eve_garbage  state=directory
+  run_once: true
+- name: "Crunching the lab facts"
+  template: src=digest_lab_facts.j2 dest=eve_garbage/topology_details.yaml
+    
