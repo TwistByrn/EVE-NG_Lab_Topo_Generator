@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<lab name="TEST LAB" id="75e3598c-7a52-51ac-817f-70ea37c0f5e6" version="1" scripttimeout="300" countdown="0" lock="0" author="Byrn Baker">
+<lab name="TEST LAB" id="9bf6af67-896f-51e8-b6c7-5eb2a1954668" version="1" scripttimeout="300" countdown="0" lock="0" author="Byrn Baker">
   <description>Creating the topology with an ansible playbook</description>
   <topology>
     <nodes>
-      <node id="1" name="R1" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="f3615efa-4093-5508-a25e-1e2e821c7af5" firstmac="50:00:00:01:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="30" icon="Router.png" config="0" left="71" top="134">        
+      <node id="1" name="R1" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="4c030616-f154-5ef9-bbf0-78b8b0d871d1" firstmac="50:00:00:01:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="30" icon="Router.png" config="0" left="184" top="207">        
         <interface id="0" name="Gi0/0" type="ethernet" network_id="12" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
         
         <interface id="1" name="Gi0/1" type="ethernet" network_id="17" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
@@ -12,7 +12,7 @@
         
         <interface id="7" name="Gi0/7" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
       </node>
-      <node id="2" name="R2" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="adc9f551-60d9-54fa-ade5-12c39a17eb74" firstmac="50:00:00:02:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="60" icon="Router.png" config="0" left="951" top="49">        
+      <node id="2" name="R2" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="1f1d5bef-5ac2-5e3e-b223-92fe2217ee20" firstmac="50:00:00:02:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="60" icon="Router.png" config="0" left="434" top="718">        
         <interface id="0" name="Gi0/0" type="ethernet" network_id="12" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
         
         <interface id="1" name="Gi0/1" type="ethernet" network_id="26" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
@@ -21,7 +21,7 @@
         
         <interface id="7" name="Gi0/7" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
       </node>
-      <node id="3" name="R3" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="8242d36d-daf0-556a-8bbd-29447f9ad262" firstmac="50:00:00:03:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="90" icon="Router.png" config="0" left="15" top="220">        
+      <node id="3" name="R3" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="412a3810-f3d7-5078-abbe-111a20d6bbf3" firstmac="50:00:00:03:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="90" icon="Router.png" config="0" left="217" top="502">        
         <interface id="0" name="Gi0/0" type="ethernet" network_id="34" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
         
         <interface id="1" name="Gi0/1" type="ethernet" network_id="23" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
@@ -34,7 +34,7 @@
         
         <interface id="7" name="Gi0/7" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
       </node>
-      <node id="4" name="R4" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="ce33f814-cf33-55b9-8e23-d4e9637619c5" firstmac="50:00:00:04:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="120" icon="Router.png" config="0" left="817" top="462">        
+      <node id="4" name="R4" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="dae097b5-4296-5d3f-8cc4-4acee86b3676" firstmac="50:00:00:04:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="120" icon="Router.png" config="0" left="591" top="583">        
         <interface id="0" name="Gi0/0" type="ethernet" network_id="34" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
         
         <interface id="1" name="Gi0/1" type="ethernet" network_id="14" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
@@ -47,14 +47,14 @@
         
         <interface id="7" name="Gi0/7" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
       </node>
-      <node id="5" name="RR" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="14060b4d-2605-5a46-b624-e7a865143675" firstmac="50:00:00:05:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="150" icon="Router.png" config="0" left="318" top="356">        
+      <node id="5" name="RR" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="c0509c85-3382-572f-b4e0-cf43c26c7bec" firstmac="50:00:00:05:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="150" icon="Router.png" config="0" left="56" top="907">        
         <interface id="0" name="Gi0/0" type="ethernet" network_id="45" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
         
         <interface id="1" name="Gi0/1" type="ethernet" network_id="35" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
         
         <interface id="7" name="Gi0/7" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
       </node>
-      <node id="6" name="R6" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="412a3810-f3d7-5078-abbe-111a20d6bbf3" firstmac="50:00:00:06:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="180" icon="Router.png" config="0" left="2" top="713">        
+      <node id="6" name="R6" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="143e8dc6-ebbf-5029-87ad-6007155a967a" firstmac="50:00:00:06:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="180" icon="Router.png" config="0" left="476" top="950">        
         <interface id="0" name="Gi0/0" type="ethernet" network_id="67" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
         
         <interface id="1" name="Gi0/1" type="ethernet" network_id="26" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
@@ -63,7 +63,7 @@
         
         <interface id="7" name="Gi0/7" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
       </node>
-      <node id="7" name="R7" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="adc9f551-60d9-54fa-ade5-12c39a17eb74" firstmac="50:00:00:07:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="210" icon="Router.png" config="0" left="528" top="668">        
+      <node id="7" name="R7" type="qemu" template="vios" image="vios-adventerprisek9-m.SPA.156-2.T" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="787ed644-0c45-5f5e-a209-8a1421d2d609" firstmac="50:00:00:07:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" delay="210" icon="Router.png" config="0" left="182" top="139">        
         <interface id="0" name="Gi0/0" type="ethernet" network_id="67" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
         
         <interface id="1" name="Gi0/1" type="ethernet" network_id="17" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
@@ -72,19 +72,19 @@
         
         <interface id="7" name="Gi0/7" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
       </node>
-      <node id="8" name="PE1" type="qemu" template="xrv9k" image="xrv9k-fullk9-7.1.2" console="telnet" cpu="4" cpulimit="0" ram="16384" ethernet="10" uuid="41c8891d-b370-568a-9e37-9c075fa71707" firstmac="50:00:00:08:00:00" qemu_options="-enable-kvm -smbios type=1,manufacturer=&quot;cisco&quot;,product=&quot;Cisco IOS XRv 9000&quot; -machine type=pc,accel=kvm,usb=off -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc,driftfix=slew -global kvm-pit.lost_tick_policy=discard -no-hpet -realtime mlock=off -no-shutdown -boot order=c  -serial null  -serial null   -serial null -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="240" icon="XR.png" config="0" left="153" top="618">        
+      <node id="8" name="PE1" type="qemu" template="xrv9k" image="xrv9k-fullk9-7.1.2" console="telnet" cpu="4" cpulimit="0" ram="16384" ethernet="10" uuid="81155e6b-82ff-578f-b1bd-0951982bfd50" firstmac="50:00:00:08:00:00" qemu_options="-enable-kvm -smbios type=1,manufacturer=&quot;cisco&quot;,product=&quot;Cisco IOS XRv 9000&quot; -machine type=pc,accel=kvm,usb=off -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc,driftfix=slew -global kvm-pit.lost_tick_policy=discard -no-hpet -realtime mlock=off -no-shutdown -boot order=c  -serial null  -serial null   -serial null -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="240" icon="XR.png" config="0" left="102" top="804">        
         <interface id="0" name="Gi0/0/0/0" type="ethernet" network_id="355" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
         
         <interface id="1" name="Gi0/0/0/1" type="ethernet" network_id="5555" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
         
         <interface id="7" name="Mgmt0/0/CPU0/0" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
       </node>
-      <node id="9" name="PE2-CP" type="qemu" template="vmxvcp" image="vmxvcp-20.2R1.10-domestic-VCP" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="12" uuid="8242d36d-daf0-556a-8bbd-29447f9ad262" firstmac="50:00:00:09:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -cpu host" qemu_version="4.1.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="270" icon="JunipervQFXre.png" config="0" left="731" top="181">        
+      <node id="9" name="PE2-CP" type="qemu" template="vmxvcp" image="vmxvcp-20.2R1.10-domestic-VCP" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="12" uuid="dae097b5-4296-5d3f-8cc4-4acee86b3676" firstmac="50:00:00:09:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -cpu host" qemu_version="4.1.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="270" icon="JunipervQFXre.png" config="0" left="464" top="664">        
         <interface id="0" name="fxp0" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
         
         <interface id="1" name="int" type="ethernet" network_id="1666" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
       </node>
-      <node id="10" name="PE2-FP" type="qemu" template="vmxvfp" image="vmxvfp-20.2R1.10-domestic-VFP" console="telnet" cpu="3" cpulimit="0" ram="4096" ethernet="12" uuid="9240b128-3d38-5d48-83b3-ec1c5942a489" firstmac="50:00:00:010:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -cpu host" qemu_version="4.1.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="300" icon="JunipervQFXpfe.png" config="0" left="156" top="45">        
+      <node id="10" name="PE2-FP" type="qemu" template="vmxvfp" image="vmxvfp-20.2R1.10-domestic-VFP" console="telnet" cpu="3" cpulimit="0" ram="4096" ethernet="12" uuid="1717908f-8ad7-5a66-91eb-362f119be303" firstmac="50:00:00:010:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -cpu host" qemu_version="4.1.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="300" icon="JunipervQFXpfe.png" config="0" left="747" top="880">        
         <interface id="1" name="int" type="ethernet" network_id="1666" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
         
         <interface id="2" name="ge-0/0/0" type="ethernet" network_id="466" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>

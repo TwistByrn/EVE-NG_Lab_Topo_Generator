@@ -3,4 +3,4 @@
   file: path=eveng_unl_file  state=directory
   run_once: true
 - name: "Generating the UNL file to copy to your EVENG host"
-  template: src=lab_topo.j2 dest=eveng_unl_file/ansible_generated.unl
+  template: src=lab_topo.j2 dest=eveng_unl_file/"{{ file_name }}".unl

@@ -2,6 +2,7 @@
 ---
 #  Fill in the name of the lab as you want it to appear in EVENG
 lab_name: TEST LAB
+file_name: ansible_test # This is the file name you will see in your EVENG file manager
 lab_author: Byrn Baker
 lab_description: Creating the topology with an ansible playbook
 #  This dictates how the nodes will be configured and connected in the lab topology map
