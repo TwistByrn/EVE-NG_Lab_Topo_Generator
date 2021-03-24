@@ -1,8 +1,8 @@
 #jinja2: lstrip_blocks: "True", trim_blocks: "True"
 {# Jinja2 template to generate a EVE-NG lab Topology #}
 {% set count = namespace(value=0) %}
-{% set map_left = namespace(value=0) %}
-{% set map_top = namespace(value=0) %}
+{% set map_left = namespace(value=600) %}
+{% set map_top = namespace(value=60) %}
 ---
 lab:
   name: {{ lab_name }}
@@ -12,14 +12,14 @@ lab:
   topology:
 {% for node,node_attr in topology.nodes.items() %}
 {% set count.value = count.value + 1 %}
-{% set map_left.value = map_left.value + 3 %}
-{% set map_top.value = map_top.value + 3 %}
+{% set map_left.value = map_left.value + 200 %}
+{% set map_top.value = map_top.value + 10 %}
     - name: {{ node }} 
       id: {{ count.value }}
       template: {{ node_attr.template }}
       ethernet: {{ node_attr.num_interfaces }}
-      map_left: {{ map_left.value }}
-      map_top: {{ map_top.value }}
+      map_left: {{ range(1,1000) | random }}
+      map_top: {{ range(1,1000) | random }}
       interfaces:
 {% for int,int_attr in node_attr.interface.items() %}
         - name: {{ int }}
