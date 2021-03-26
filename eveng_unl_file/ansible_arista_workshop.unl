@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="Ansible Arista Workshop" id="fd1f3a27-b58d-582d-b234-a3f786af806e" version="1" scripttimeout="300" countdown="0" lock="0" author="Byrn Baker">
+  <description>Lab is used to demonstrate how arista and ansible can work together to facilitate automation</description>
+  <topology>
+    <nodes>
+      <node id="1" name="POD1R1" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="0e8ebce9-f081-50ff-8ceb-8d4f0ff924c7" firstmac="50:00:00:01:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="30" icon="AristaSW.png" config="0" left="882" top="908">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="11" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="2" name="Eth2" type="ethernet" network_id="12" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="2" name="POD1SW1" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="461eaac3-790a-59a4-95fe-d8991c24fa06" firstmac="50:00:00:02:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="60" icon="AristaSW.png" config="0" left="623" top="147">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="12" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="113" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="4" name="Eth4" type="ethernet" network_id="1122" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="5" name="Eth5" type="ethernet" network_id="1123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="3" name="POD1SW2" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="a6f9ca66-e6be-56c5-b95a-0563f29f549d" firstmac="50:00:00:03:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="90" icon="AristaSW.png" config="0" left="434" top="997">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="11" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="4" name="Eth4" type="ethernet" network_id="1122" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="5" name="Eth5" type="ethernet" network_id="1123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="4" name="POD1SW3" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="81f17f3b-a8a3-5f43-809e-2a1e41cbc8d3" firstmac="50:00:00:04:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="120" icon="AristaSW.png" config="0" left="20" top="309">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="113" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="2" name="Eth2" type="ethernet" network_id="123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="131" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="4" name="Eth4" type="ethernet" network_id="132" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="5" name="Eth5" type="ethernet" network_id="133" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="5" name="POD2R1" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="adf81b44-0fd5-5604-bd49-93e54be29119" firstmac="50:00:00:05:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="150" icon="AristaSW.png" config="0" left="121" top="650">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="211" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="2" name="Eth2" type="ethernet" network_id="212" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="2" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="6" name="POD2SW1" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="9240b128-3d38-5d48-83b3-ec1c5942a489" firstmac="50:00:00:06:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="180" icon="AristaSW.png" config="0" left="759" top="583">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="212" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="2113" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="4" name="Eth4" type="ethernet" network_id="21122" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="5" name="Eth5" type="ethernet" network_id="21123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="7" name="POD2SW2" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="9bf6af67-896f-51e8-b6c7-5eb2a1954668" firstmac="50:00:00:07:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="210" icon="AristaSW.png" config="0" left="329" top="171">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="211" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="2123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="4" name="Eth4" type="ethernet" network_id="21122" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="5" name="Eth5" type="ethernet" network_id="21123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="8" name="POD2SW3" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="b77e8be5-87ad-5c6c-b788-6060f7399d9c" firstmac="50:00:00:08:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="240" icon="AristaSW.png" config="0" left="127" top="451">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="2113" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="2" name="Eth2" type="ethernet" network_id="2123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="2131" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="4" name="Eth4" type="ethernet" network_id="2132" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="5" name="Eth5" type="ethernet" network_id="2133" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="9" name="POD3R1" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="728cd440-8280-5121-beee-1a562d24b4d4" firstmac="50:00:00:09:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="270" icon="AristaSW.png" config="0" left="526" top="657">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="311" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="2" name="Eth2" type="ethernet" network_id="312" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="3" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="10" name="POD3SW1" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="08baf284-b04f-5c74-bd84-a83d6753cb40" firstmac="50:00:00:010:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="300" icon="AristaSW.png" config="0" left="969" top="255">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="312" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="3113" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="4" name="Eth4" type="ethernet" network_id="31122" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="5" name="Eth5" type="ethernet" network_id="31123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="11" name="POD3SW2" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="f64039ff-1b24-5ce7-a3a8-c1e93fe5d2ff" firstmac="50:00:00:011:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="330" icon="AristaSW.png" config="0" left="475" top="72">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="311" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="3123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="4" name="Eth4" type="ethernet" network_id="31122" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="5" name="Eth5" type="ethernet" network_id="31123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="12" name="POD3SW3" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="75e3598c-7a52-51ac-817f-70ea37c0f5e6" firstmac="50:00:00:012:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="360" icon="AristaSW.png" config="0" left="955" top="834">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="3113" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="2" name="Eth2" type="ethernet" network_id="3123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="3131" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="4" name="Eth4" type="ethernet" network_id="3132" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="5" name="Eth5" type="ethernet" network_id="3133" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="13" name="POD4R1" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="4c030616-f154-5ef9-bbf0-78b8b0d871d1" firstmac="50:00:00:013:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="390" icon="AristaSW.png" config="0" left="144" top="788">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="411" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="2" name="Eth2" type="ethernet" network_id="412" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="4" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="14" name="POD4SW1" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="0a07362c-964a-5674-85be-344d9ab8153a" firstmac="50:00:00:014:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="420" icon="AristaSW.png" config="0" left="172" top="281">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="412" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="4113" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="4" name="Eth4" type="ethernet" network_id="41122" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="5" name="Eth5" type="ethernet" network_id="41123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="15" name="POD4SW2" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="94555c79-3702-5bbf-bf48-1bd350272456" firstmac="50:00:00:015:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="450" icon="AristaSW.png" config="0" left="245" top="170">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="411" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="4123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="4" name="Eth4" type="ethernet" network_id="41122" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="5" name="Eth5" type="ethernet" network_id="41123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="16" name="POD4SW3" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="75e3598c-7a52-51ac-817f-70ea37c0f5e6" firstmac="50:00:00:016:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="480" icon="AristaSW.png" config="0" left="343" top="28">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="4113" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="2" name="Eth2" type="ethernet" network_id="4123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="4131" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="4" name="Eth4" type="ethernet" network_id="4132" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="5" name="Eth5" type="ethernet" network_id="4133" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="17" name="POD5R1" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="62c73910-725f-58ce-9809-b74a273b044a" firstmac="50:00:00:017:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="510" icon="AristaSW.png" config="0" left="684" top="552">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="511" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="2" name="Eth2" type="ethernet" network_id="512" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="5" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="18" name="POD5SW1" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="cd6755aa-60a9-55b1-9225-a609b26853dc" firstmac="50:00:00:018:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="540" icon="AristaSW.png" config="0" left="902" top="689">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="512" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="5113" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="4" name="Eth4" type="ethernet" network_id="51122" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="5" name="Eth5" type="ethernet" network_id="51123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="19" name="POD5SW2" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="91fdd032-de91-5599-ac03-93b3abe9ef1f" firstmac="50:00:00:019:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="570" icon="AristaSW.png" config="0" left="635" top="638">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="511" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="5123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="4" name="Eth4" type="ethernet" network_id="51122" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="5" name="Eth5" type="ethernet" network_id="51123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="20" name="POD5SW3" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="4c030616-f154-5ef9-bbf0-78b8b0d871d1" firstmac="50:00:00:020:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="600" icon="AristaSW.png" config="0" left="68" top="586">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="5113" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="2" name="Eth2" type="ethernet" network_id="5123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="5131" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="4" name="Eth4" type="ethernet" network_id="5132" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="5" name="Eth5" type="ethernet" network_id="5133" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="21" name="POD6R1" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="0ea69e2f-8e58-50af-8aa9-1dbd68e7e283" firstmac="50:00:00:021:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="630" icon="AristaSW.png" config="0" left="733" top="952">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="611" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="2" name="Eth2" type="ethernet" network_id="612" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="6" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="22" name="POD6SW1" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="54690a27-5069-5f72-9bad-ca66e6097ee0" firstmac="50:00:00:022:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="660" icon="AristaSW.png" config="0" left="398" top="852">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="612" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="6113" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="4" name="Eth4" type="ethernet" network_id="61122" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="5" name="Eth5" type="ethernet" network_id="61123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="23" name="POD6SW2" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="adf81b44-0fd5-5604-bd49-93e54be29119" firstmac="50:00:00:023:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="690" icon="AristaSW.png" config="0" left="495" top="267">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="611" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="6123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="4" name="Eth4" type="ethernet" network_id="61122" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="5" name="Eth5" type="ethernet" network_id="61123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="24" name="POD6SW3" type="qemu" template="veos" image="veos-4.24.3M" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="787ed644-0c45-5f5e-a209-8a1421d2d609" firstmac="50:00:00:024:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="720" icon="AristaSW.png" config="0" left="981" top="68">        
+        <interface id="0" name="Mgmt1" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Eth1" type="ethernet" network_id="6113" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="2" name="Eth2" type="ethernet" network_id="6123" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Eth3" type="ethernet" network_id="6131" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="4" name="Eth4" type="ethernet" network_id="6132" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="5" name="Eth5" type="ethernet" network_id="6133" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="25" name="POD1USER" type="docker" template="docker" image="eve-gui-server:latest" ethernet="1" ram="1024" cpu="1" console="rdp" e0dhcp="1" delay="750" sat="0" icon="Desktop.png" config="0" left="791" top="901">        
+        <interface id="0" name="eth0" type="ethernet" network_id="131" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="26" name="POD1SERVER" type="docker" template="docker" image="eve-gui-server:latest" ethernet="1" ram="1024" cpu="1" console="rdp" e0dhcp="1" delay="780" sat="0" icon="Desktop.png" config="0" left="253" top="638">        
+        <interface id="0" name="eth0" type="ethernet" network_id="132" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="27" name="POD1GUEST" type="docker" template="docker" image="eve-gui-server:latest" ethernet="1" ram="1024" cpu="1" console="rdp" e0dhcp="1" delay="810" sat="0" icon="Desktop.png" config="0" left="800" top="774">        
+        <interface id="0" name="eth0" type="ethernet" network_id="133" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="28" name="POD2USER" type="docker" template="docker" image="eve-gui-server:latest" ethernet="1" ram="1024" cpu="1" console="rdp" e0dhcp="1" delay="840" sat="0" icon="Desktop.png" config="0" left="382" top="224">        
+        <interface id="0" name="eth0" type="ethernet" network_id="2131" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="29" name="POD2SERVER" type="docker" template="docker" image="eve-gui-server:latest" ethernet="1" ram="1024" cpu="1" console="rdp" e0dhcp="1" delay="870" sat="0" icon="Desktop.png" config="0" left="163" top="909">        
+        <interface id="0" name="eth0" type="ethernet" network_id="2132" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="30" name="POD2GUEST" type="docker" template="docker" image="eve-gui-server:latest" ethernet="1" ram="1024" cpu="1" console="rdp" e0dhcp="1" delay="900" sat="0" icon="Desktop.png" config="0" left="742" top="986">        
+        <interface id="0" name="eth0" type="ethernet" network_id="2133" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="31" name="POD3USER" type="docker" template="docker" image="eve-gui-server:latest" ethernet="1" ram="1024" cpu="1" console="rdp" e0dhcp="1" delay="930" sat="0" icon="Desktop.png" config="0" left="821" top="906">        
+        <interface id="0" name="eth0" type="ethernet" network_id="3131" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="32" name="POD3SERVER" type="docker" template="docker" image="eve-gui-server:latest" ethernet="1" ram="1024" cpu="1" console="rdp" e0dhcp="1" delay="960" sat="0" icon="Desktop.png" config="0" left="740" top="514">        
+        <interface id="0" name="eth0" type="ethernet" network_id="3132" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="33" name="POD3GUEST" type="docker" template="docker" image="eve-gui-server:latest" ethernet="1" ram="1024" cpu="1" console="rdp" e0dhcp="1" delay="990" sat="0" icon="Desktop.png" config="0" left="908" top="512">        
+        <interface id="0" name="eth0" type="ethernet" network_id="3133" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="34" name="POD4USER" type="docker" template="docker" image="eve-gui-server:latest" ethernet="1" ram="1024" cpu="1" console="rdp" e0dhcp="1" delay="1020" sat="0" icon="Desktop.png" config="0" left="103" top="236">        
+        <interface id="0" name="eth0" type="ethernet" network_id="4131" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="35" name="POD4SERVER" type="docker" template="docker" image="eve-gui-server:latest" ethernet="1" ram="1024" cpu="1" console="rdp" e0dhcp="1" delay="1050" sat="0" icon="Desktop.png" config="0" left="919" top="894">        
+        <interface id="0" name="eth0" type="ethernet" network_id="4132" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="36" name="POD4GUEST" type="docker" template="docker" image="eve-gui-server:latest" ethernet="1" ram="1024" cpu="1" console="rdp" e0dhcp="1" delay="1080" sat="0" icon="Desktop.png" config="0" left="854" top="742">        
+        <interface id="0" name="eth0" type="ethernet" network_id="4133" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="37" name="POD5USER" type="docker" template="docker" image="eve-gui-server:latest" ethernet="1" ram="1024" cpu="1" console="rdp" e0dhcp="1" delay="1110" sat="0" icon="Desktop.png" config="0" left="256" top="277">        
+        <interface id="0" name="eth0" type="ethernet" network_id="5131" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="38" name="POD5SERVER" type="docker" template="docker" image="eve-gui-server:latest" ethernet="1" ram="1024" cpu="1" console="rdp" e0dhcp="1" delay="1140" sat="0" icon="Desktop.png" config="0" left="737" top="7">        
+        <interface id="0" name="eth0" type="ethernet" network_id="5132" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="39" name="POD5GUEST" type="docker" template="docker" image="eve-gui-server:latest" ethernet="1" ram="1024" cpu="1" console="rdp" e0dhcp="1" delay="1170" sat="0" icon="Desktop.png" config="0" left="363" top="616">        
+        <interface id="0" name="eth0" type="ethernet" network_id="5133" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="40" name="POD6USER" type="docker" template="docker" image="eve-gui-server:latest" ethernet="1" ram="1024" cpu="1" console="rdp" e0dhcp="1" delay="1200" sat="0" icon="Desktop.png" config="0" left="931" top="849">        
+        <interface id="0" name="eth0" type="ethernet" network_id="6131" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="41" name="POD6SERVER" type="docker" template="docker" image="eve-gui-server:latest" ethernet="1" ram="1024" cpu="1" console="rdp" e0dhcp="1" delay="1230" sat="0" icon="Desktop.png" config="0" left="362" top="839">        
+        <interface id="0" name="eth0" type="ethernet" network_id="6132" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="42" name="POD6GUEST" type="docker" template="docker" image="eve-gui-server:latest" ethernet="1" ram="1024" cpu="1" console="rdp" e0dhcp="1" delay="1260" sat="0" icon="Desktop.png" config="0" left="955" top="479">        
+        <interface id="0" name="eth0" type="ethernet" network_id="6133" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="43" name="ISP" type="qemu" template="c8000v" image="c8000v-17.04.01a" console="telnet" cpu="2" cpulimit="0" ram="4096" ethernet="8" uuid="18b97bda-fcec-5328-a2c1-acfdc3a9a92e" firstmac="50:00:00:043:00:00" qemu_options="-machine type=pc,accel=kvm -cpu host -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc" qemu_version="4.1.0" qemu_arch="x86_64" qemu_nic="vmxnet3" delay="1290" sat="0" icon="CSRv1000.png" config="0" left="325" top="337">        
+        <interface id="0" name="Gi1" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="1" name="Gi2" type="ethernet" network_id="2" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="2" name="Gi3" type="ethernet" network_id="3" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="3" name="Gi4" type="ethernet" network_id="4" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="4" name="Gi5" type="ethernet" network_id="5" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="5" name="Gi6" type="ethernet" network_id="6" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="7" name="Gi8" type="ethernet" network_id="1000" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+    </nodes>
+      <networks>
+        <network id="1000" type="pnet4" name="MGMT" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="cloud_sm.png"/>
+        <network id="11" type="bridge" name="POD1R1_to_POD1SW1" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="12" type="bridge" name="POD1R1_to_POD1SW2" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="1122" type="bridge" name="POD1SW1_1_to_POD1SW2_1" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="1123" type="bridge" name="POD1SW1_2_to_POD1SW2_2" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="113" type="bridge" name="POD1SW1_to_POD1SW3" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="123" type="bridge" name="POD1SW2_to_POD1SW3" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="131" type="bridge" name="POD1SW3_to_POD1USER" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="132" type="bridge" name="POD1SW3_to_POD1SERVER" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="133" type="bridge" name="POD1SW3_to_POD1GUEST" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="211" type="bridge" name="POD2R1_to_POD2SW1" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="212" type="bridge" name="POD2R1_to_POD2SW2" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="21122" type="bridge" name="POD2SW1_1_to_POD2SW2_1" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="21123" type="bridge" name="POD2SW1_2_to_POD2SW2_2" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="2113" type="bridge" name="POD2SW1_to_POD2SW3" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="2123" type="bridge" name="POD2SW2_to_POD2SW3" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="2131" type="bridge" name="POD2SW3_to_POD2USER" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="2132" type="bridge" name="POD2SW3_to_POD2SERVER" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="2133" type="bridge" name="POD2SW3_to_POD2GUEST" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="311" type="bridge" name="POD3R1_to_POD3SW1" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="312" type="bridge" name="POD3R1_to_POD3SW2" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="31122" type="bridge" name="POD3SW1_1_to_POD3SW2_1" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="31123" type="bridge" name="POD3SW1_2_to_POD3SW2_2" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="3113" type="bridge" name="POD3SW1_to_POD3SW3" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="3123" type="bridge" name="POD3SW2_to_POD3SW3" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="3131" type="bridge" name="POD3SW3_to_POD3USER" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="3132" type="bridge" name="POD3SW3_to_POD3SERVER" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="3133" type="bridge" name="POD3SW3_to_POD3GUEST" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="411" type="bridge" name="POD4R1_to_POD4SW1" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="412" type="bridge" name="POD4R1_to_POD4SW2" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="41122" type="bridge" name="POD4SW1_1_to_POD4SW2_1" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="41123" type="bridge" name="POD4SW1_2_to_POD4SW2_2" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="4113" type="bridge" name="POD4SW1_to_POD4SW3" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="4123" type="bridge" name="POD4SW2_to_POD4SW3" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="4131" type="bridge" name="POD4SW3_to_POD4USER" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="4132" type="bridge" name="POD4SW3_to_POD4SERVER" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="4133" type="bridge" name="POD4SW3_to_POD4GUEST" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="511" type="bridge" name="POD5R1_to_POD5SW1" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="512" type="bridge" name="POD5R1_to_POD5SW2" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="51122" type="bridge" name="POD5SW1_1_to_POD5SW2_1" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="51123" type="bridge" name="POD5SW1_2_to_POD5SW2_2" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="5113" type="bridge" name="POD5SW1_to_POD5SW3" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="5123" type="bridge" name="POD5SW2_to_POD5SW3" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="5131" type="bridge" name="POD5SW3_to_POD5USER" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="5132" type="bridge" name="POD5SW3_to_POD5SERVER" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="5133" type="bridge" name="POD5SW3_to_POD5GUEST" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="611" type="bridge" name="POD6R1_to_POD6SW1" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="612" type="bridge" name="POD6R1_to_POD6SW2" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="61122" type="bridge" name="POD6SW1_1_to_POD6SW2_1" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="61123" type="bridge" name="POD6SW1_2_to_POD6SW2_2" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="6113" type="bridge" name="POD6SW1_to_POD6SW3" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="6123" type="bridge" name="POD6SW2_to_POD6SW3" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="6131" type="bridge" name="POD6SW3_to_POD6USER" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="6132" type="bridge" name="POD6SW3_to_POD6SERVER" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="6133" type="bridge" name="POD6SW3_to_POD6GUEST" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="1" type="bridge" name="ISP_to_POD1R1" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="2" type="bridge" name="ISP_to_POD2R1" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="3" type="bridge" name="ISP_to_POD3R1" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="4" type="bridge" name="ISP_to_POD4R1" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="5" type="bridge" name="ISP_to_POD5R1" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+        <network id="6" type="bridge" name="ISP_to_POD6R1" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      </networks>
+  </topology>
+</lab>
