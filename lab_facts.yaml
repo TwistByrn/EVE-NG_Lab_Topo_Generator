@@ -18,7 +18,7 @@ topology:
       num_interfaces: 9
       interface:
         Mgmt1: {int_id: 0, net_id: 1000}
-        Eth1: {int_id: 1, net_id: 12} 
+        Eth1: {int_id: 1, net_id: 11} 
         Eth3: {int_id: 3, net_id: 113}
         Eth4: {int_id: 4, net_id: 1122}
         Eth5: {int_id: 5, net_id: 1123}
@@ -27,7 +27,7 @@ topology:
       num_interfaces: 9
       interface:
         Mgmt1: {int_id: 0, net_id: 1000}
-        Eth1: {int_id: 1, net_id: 11} 
+        Eth1: {int_id: 1, net_id: 12} 
         Eth3: {int_id: 3, net_id: 123}
         Eth4: {int_id: 4, net_id: 1122}
         Eth5: {int_id: 5, net_id: 1123}
@@ -54,7 +54,7 @@ topology:
       num_interfaces: 9
       interface:
         Mgmt1: {int_id: 0, net_id: 1000}
-        Eth1: {int_id: 1, net_id: 212} 
+        Eth1: {int_id: 1, net_id: 211} 
         Eth3: {int_id: 3, net_id: 2113}
         Eth4: {int_id: 4, net_id: 21122}
         Eth5: {int_id: 5, net_id: 21123}
@@ -63,7 +63,7 @@ topology:
       num_interfaces: 9
       interface:
         Mgmt1: {int_id: 0, net_id: 1000}
-        Eth1: {int_id: 1, net_id: 211} 
+        Eth1: {int_id: 1, net_id: 212} 
         Eth3: {int_id: 3, net_id: 2123}
         Eth4: {int_id: 4, net_id: 21122}
         Eth5: {int_id: 5, net_id: 21123}
@@ -90,7 +90,7 @@ topology:
       num_interfaces: 9
       interface:
         Mgmt1: {int_id: 0, net_id: 1000}
-        Eth1: {int_id: 1, net_id: 312} 
+        Eth1: {int_id: 1, net_id: 311} 
         Eth3: {int_id: 3, net_id: 3113}
         Eth4: {int_id: 4, net_id: 31122}
         Eth5: {int_id: 5, net_id: 31123}
@@ -99,7 +99,7 @@ topology:
       num_interfaces: 9
       interface:
         Mgmt1: {int_id: 0, net_id: 1000}
-        Eth1: {int_id: 1, net_id: 311} 
+        Eth1: {int_id: 1, net_id: 312} 
         Eth3: {int_id: 3, net_id: 3123}
         Eth4: {int_id: 4, net_id: 31122}
         Eth5: {int_id: 5, net_id: 31123}
@@ -126,7 +126,7 @@ topology:
       num_interfaces: 9
       interface:
         Mgmt1: {int_id: 0, net_id: 1000}
-        Eth1: {int_id: 1, net_id: 412} 
+        Eth1: {int_id: 1, net_id: 411} 
         Eth3: {int_id: 3, net_id: 4113}
         Eth4: {int_id: 4, net_id: 41122}
         Eth5: {int_id: 5, net_id: 41123}
@@ -135,7 +135,7 @@ topology:
       num_interfaces: 9
       interface:
         Mgmt1: {int_id: 0, net_id: 1000}
-        Eth1: {int_id: 1, net_id: 411} 
+        Eth1: {int_id: 1, net_id: 412} 
         Eth3: {int_id: 3, net_id: 4123}
         Eth4: {int_id: 4, net_id: 41122}
         Eth5: {int_id: 5, net_id: 41123}
@@ -162,7 +162,7 @@ topology:
       num_interfaces: 9
       interface:
         Mgmt1: {int_id: 0, net_id: 1000}
-        Eth1: {int_id: 1, net_id: 512} 
+        Eth1: {int_id: 1, net_id: 511} 
         Eth3: {int_id: 3, net_id: 5113}
         Eth4: {int_id: 4, net_id: 51122}
         Eth5: {int_id: 5, net_id: 51123}
@@ -171,7 +171,7 @@ topology:
       num_interfaces: 9
       interface:
         Mgmt1: {int_id: 0, net_id: 1000}
-        Eth1: {int_id: 1, net_id: 511} 
+        Eth1: {int_id: 1, net_id: 512} 
         Eth3: {int_id: 3, net_id: 5123}
         Eth4: {int_id: 4, net_id: 51122}
         Eth5: {int_id: 5, net_id: 51123}
@@ -198,7 +198,7 @@ topology:
       num_interfaces: 9
       interface:
         Mgmt1: {int_id: 0, net_id: 1000}
-        Eth1: {int_id: 1, net_id: 612} 
+        Eth1: {int_id: 1, net_id: 611} 
         Eth3: {int_id: 3, net_id: 6113}
         Eth4: {int_id: 4, net_id: 61122}
         Eth5: {int_id: 5, net_id: 61123}
@@ -207,7 +207,7 @@ topology:
       num_interfaces: 9
       interface:
         Mgmt1: {int_id: 0, net_id: 1000}
-        Eth1: {int_id: 1, net_id: 611} 
+        Eth1: {int_id: 1, net_id: 612} 
         Eth3: {int_id: 3, net_id: 6123}
         Eth4: {int_id: 4, net_id: 61122}
         Eth5: {int_id: 5, net_id: 61123}
@@ -311,6 +311,36 @@ topology:
       num_interfaces: 1
       interface:
         eth0: {int_id: 0, net_id: 6133}
+    POD1ANSIBLE:
+      template: linux-ubuntu-desktop-20.04.1
+      num_interfaces: 1
+      interface:
+        e0: {int_id: 0, net_id: 1000}
+    POD2ANSIBLE:
+      template: linux-ubuntu-desktop-20.04.1
+      num_interfaces: 1
+      interface:
+        e0: {int_id: 0, net_id: 1000}  
+    POD3ANSIBLE:
+      template: linux-ubuntu-desktop-20.04.1
+      num_interfaces: 1
+      interface:
+        e0: {int_id: 0, net_id: 1000}  
+    POD4ANSIBLE:
+      template: linux-ubuntu-desktop-20.04.1
+      num_interfaces: 1
+      interface:
+        e0: {int_id: 0, net_id: 1000}  
+    POD5ANSIBLE:
+      template: linux-ubuntu-desktop-20.04.1
+      num_interfaces: 1
+      interface:
+        e0: {int_id: 0, net_id: 1000}  
+    POD6ANSIBLE:
+      template: linux-ubuntu-desktop-20.04.1
+      num_interfaces: 1
+      interface:
+        e0: {int_id: 0, net_id: 1000}                       
     ISP:
       template: c8000v
       num_interfaces: 8
