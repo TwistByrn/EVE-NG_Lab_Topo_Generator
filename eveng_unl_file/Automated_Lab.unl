@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="Ansible Cisco Lab" id="d6e20e7f-e47e-5e6b-a580-fba6b8a86845" version="1" scripttimeout="300" countdown="0" lock="0" author="Sudhar Gopalan">
+  <description>Lab is used to demonstrate how Cisco and ansible can work together to facilitate automation</description>
+  <topology>
+    <nodes>
+      <node id="1" name="R1" type="qemu" template="xrv9k" image="xrv9k-fullk9-7.1.2" console="telnet" cpu="4" cpulimit="0" ram="16384" ethernet="9" uuid="3c883a16-6322-540c-a7c4-d4e7f98e60da" firstmac="50:00:00:01:00:00" qemu_options="-enable-kvm -smbios type=1,manufacturer=&quot;cisco&quot;,product=&quot;Cisco IOS XRv 9000&quot; -machine type=pc,accel=kvm,usb=off -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc,driftfix=slew -global kvm-pit.lost_tick_policy=discard -no-hpet -realtime mlock=off -no-shutdown -boot order=c  -serial null  -serial null   -serial null -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="30" icon="XR.png" config="0" left="518" top="588">        
+        <interface id="3" name="Gi0/0/0/0" type="ethernet" network_id="12" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="0" name="Mgmt0/0/CPU0/0" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="2" name="R2" type="qemu" template="xrv9k" image="xrv9k-fullk9-7.1.2" console="telnet" cpu="4" cpulimit="0" ram="16384" ethernet="9" uuid="5c9b4ba7-4117-532b-b3cf-9b54037322b8" firstmac="50:00:00:02:00:00" qemu_options="-enable-kvm -smbios type=1,manufacturer=&quot;cisco&quot;,product=&quot;Cisco IOS XRv 9000&quot; -machine type=pc,accel=kvm,usb=off -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc,driftfix=slew -global kvm-pit.lost_tick_policy=discard -no-hpet -realtime mlock=off -no-shutdown -boot order=c  -serial null  -serial null   -serial null -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="60" icon="XR.png" config="0" left="757" top="340">        
+        <interface id="3" name="Gi0/0/0/0" type="ethernet" network_id="12" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        
+        <interface id="0" name="Mgmt0/0/CPU0/0" type="ethernet" network_id="1" labelpos="0.5" curviness="10" beziercurviness="150" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+    </nodes>
+      <networks>
+        <network id="1" type="pnet4" name="MGMT" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="cloud_sm.png"/>
+        <network id="12" type="bridge" name="R1_to_R2" left="774" top="94" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png"/>
+      </networks>
+  </topology>
+  <configs>
+    <config id="1">dnJmIE1HTVQKYWRkcmVzcy1mYW1pbHkgaXB2NCB1bmljYXN0CiEKIQpjb250cm9sLXBsYW5lCm1hbmFnZW1lbnQtcGxhbmUKICBvdXQtb2YtYmFuZAogIHZyZiBNR01UCiAgaW50ZXJmYWNlIE1nbXRFdGgwL1JQMC9DUFUwLzAKICAhCiAgIQohCiEKaW50ZXJmYWNlIE1nbXRFdGgwL1JQMC9DUFUwLzAKICBkZXNjcmlwdGlvbiBNR01UX0lOVEVSRkFDRQogIHZyZiBNR01UCiAgaXB2NCBhZGRyZXNzIDE5Mi4xNjguNC4xIDI1NS4yNTUuMjU1LjAKICBubyBzaHV0CiAgIQo=</config>
+    <config id="2">dnJmIE1HTVQKYWRkcmVzcy1mYW1pbHkgaXB2NCB1bmljYXN0CiEKIQpjb250cm9sLXBsYW5lCm1hbmFnZW1lbnQtcGxhbmUKICBvdXQtb2YtYmFuZAogIHZyZiBNR01UCiAgaW50ZXJmYWNlIE1nbXRFdGgwL1JQMC9DUFUwLzAKICAhCiAgIQohCiEKaW50ZXJmYWNlIE1nbXRFdGgwL1JQMC9DUFUwLzAKICBkZXNjcmlwdGlvbiBNR01UX0lOVEVSRkFDRQogIHZyZiBNR01UCiAgaXB2NCBhZGRyZXNzIDE5Mi4xNjguNC4yIDI1NS4yNTUuMjU1LjAKICBubyBzaHV0CiAgIQo=</config>
+  </configs>
+</lab>

@@ -8,4 +8,4 @@
   roles:
     - { role: digest_lab_facts }
     - { role: generate_unl_file }
-    - { role: cleanup }
+    # - { role: cleanup }

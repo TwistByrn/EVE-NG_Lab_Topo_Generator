@@ -1,0 +1,77 @@
+---
+lab:
+  name: Ansible Cisco Lab
+  file_name: Automated_Lab
+  version: 1
+  author: Sudhar Gopalan
+  description: Lab is used to demonstrate how Cisco and ansible can work together to facilitate automation
+  topology:
+    - name: R1 
+      id: 1
+      template: xrv9k
+      ethernet: 9
+      map_left: 518
+      map_top: 588
+      interfaces:
+        - name: Gi0/0/0/0
+          int_id: 3
+          net_id: 12
+        - name: Mgmt0/0/CPU0/0
+          int_id: 0
+          net_id: 1
+      configs: | 
+        vrf MGMT
+        address-family ipv4 unicast
+        !
+        !
+        control-plane
+        management-plane
+          out-of-band
+          vrf MGMT
+          interface MgmtEth0/RP0/CPU0/0
+          !
+          !
+        !
+        !
+        interface MgmtEth0/RP0/CPU0/0
+          description MGMT_INTERFACE
+          vrf MGMT
+          ipv4 address 192.168.4.1 255.255.255.0
+          no shut
+          !
+    - name: R2 
+      id: 2
+      template: xrv9k
+      ethernet: 9
+      map_left: 757
+      map_top: 340
+      interfaces:
+        - name: Gi0/0/0/0
+          int_id: 3
+          net_id: 12
+        - name: Mgmt0/0/CPU0/0
+          int_id: 0
+          net_id: 1
+      configs: | 
+        vrf MGMT
+        address-family ipv4 unicast
+        !
+        !
+        control-plane
+        management-plane
+          out-of-band
+          vrf MGMT
+          interface MgmtEth0/RP0/CPU0/0
+          !
+          !
+        !
+        !
+        interface MgmtEth0/RP0/CPU0/0
+          description MGMT_INTERFACE
+          vrf MGMT
+          ipv4 address 192.168.4.2 255.255.255.0
+          no shut
+          !
+  network:
+    MGMT: {net_id: 1, type: pnet4, visibility: 0, icon: cloud_sm.png }
+    R1_to_R2: {net_id: 12, type: bridge, visibility: 0, icon: lan.png }

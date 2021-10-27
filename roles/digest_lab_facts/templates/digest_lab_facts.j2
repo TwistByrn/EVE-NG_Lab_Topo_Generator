@@ -27,6 +27,26 @@ lab:
           int_id: {{ int_attr.int_id }}
           net_id: {{ int_attr.net_id }}
 {% endfor %}
+      configs: | 
+        vrf {{ node_attr.config.vrf }}
+        address-family {{ node_attr.config.address_family}}
+        !
+        !
+        control-plane
+        management-plane
+          out-of-band
+          vrf {{ node_attr.config.vrf }}
+          interface {{ node_attr.config.interface }}
+          !
+          !
+        !
+        !
+        interface {{ node_attr.config.interface }}
+          description {{ node_attr.config.description }}
+          vrf MGMT
+          ipv4 address {{ node_attr.config.address }}
+          no shut
+          !
 {% endfor %}
   network:
 {% for net,net_attr in network.items() %}

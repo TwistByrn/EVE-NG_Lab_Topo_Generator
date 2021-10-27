@@ -23,4 +23,11 @@
 {% endfor %}
       </networks>
   </topology>
+  <configs>
+    {% for node in lab.topology %}
+    {% if node.configs is defined %}
+    <config id="{{ node.id }}">{{ node.configs | b64encode }}</config>
+    {% endif %}
+    {% endfor %}
+  </configs>
 </lab>

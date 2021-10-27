@@ -1,0 +1,417 @@
+---
+lab_name: Ansible Arista Workshop
+file_name: ansible_arista_workshop
+lab_author: Byrn Baker
+lab_description: Lab is used to demonstrate how arista and ansible can work together to facilitate automation
+topology:
+  nodes:
+    POD1R1: 
+      template: veos 
+      num_interfaces: 9 
+      interface: 
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 11} 
+        Eth2: {int_id: 2, net_id: 12}
+        Eth3: {int_id: 3, net_id: 1}
+    POD1SW1: 
+      template: veos
+      num_interfaces: 9
+      interface:
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 11} 
+        Eth3: {int_id: 3, net_id: 113}
+        Eth4: {int_id: 4, net_id: 1122}
+        Eth5: {int_id: 5, net_id: 1123}
+    POD1SW2: 
+      template: veos
+      num_interfaces: 9
+      interface:
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 12} 
+        Eth3: {int_id: 3, net_id: 123}
+        Eth4: {int_id: 4, net_id: 1122}
+        Eth5: {int_id: 5, net_id: 1123}
+    POD1SW3: 
+      template: veos
+      num_interfaces: 9
+      interface:
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 113}
+        Eth2: {int_id: 2, net_id: 123}
+        Eth3: {int_id: 3, net_id: 131}
+        Eth4: {int_id: 4, net_id: 132}
+        Eth5: {int_id: 5, net_id: 133}
+    POD2R1: 
+      template: veos 
+      num_interfaces: 9 
+      interface: 
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 211} 
+        Eth2: {int_id: 2, net_id: 212 }
+        Eth3: {int_id: 3, net_id: 2}
+    POD2SW1: 
+      template: veos
+      num_interfaces: 9
+      interface:
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 211} 
+        Eth3: {int_id: 3, net_id: 2113}
+        Eth4: {int_id: 4, net_id: 21122}
+        Eth5: {int_id: 5, net_id: 21123}
+    POD2SW2: 
+      template: veos
+      num_interfaces: 9
+      interface:
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 212} 
+        Eth3: {int_id: 3, net_id: 2123}
+        Eth4: {int_id: 4, net_id: 21122}
+        Eth5: {int_id: 5, net_id: 21123}
+    POD2SW3: 
+      template: veos
+      num_interfaces: 9
+      interface:
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 2113}
+        Eth2: {int_id: 2, net_id: 2123}
+        Eth3: {int_id: 3, net_id: 2131}
+        Eth4: {int_id: 4, net_id: 2132}
+        Eth5: {int_id: 5, net_id: 2133}
+    POD3R1: 
+      template: veos 
+      num_interfaces: 9 
+      interface: 
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 311} 
+        Eth2: {int_id: 2, net_id: 312 }
+        Eth3: {int_id: 3, net_id: 3}
+    POD3SW1: 
+      template: veos
+      num_interfaces: 9
+      interface:
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 311} 
+        Eth3: {int_id: 3, net_id: 3113}
+        Eth4: {int_id: 4, net_id: 31122}
+        Eth5: {int_id: 5, net_id: 31123}
+    POD3SW2: 
+      template: veos
+      num_interfaces: 9
+      interface:
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 312} 
+        Eth3: {int_id: 3, net_id: 3123}
+        Eth4: {int_id: 4, net_id: 31122}
+        Eth5: {int_id: 5, net_id: 31123}
+    POD3SW3: 
+      template: veos
+      num_interfaces: 9
+      interface:
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 3113}
+        Eth2: {int_id: 2, net_id: 3123}
+        Eth3: {int_id: 3, net_id: 3131}
+        Eth4: {int_id: 4, net_id: 3132}
+        Eth5: {int_id: 5, net_id: 3133}
+    POD4R1: 
+      template: veos 
+      num_interfaces: 9 
+      interface: 
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 411} 
+        Eth2: {int_id: 2, net_id: 412 }
+        Eth3: {int_id: 3, net_id: 4}
+    POD4SW1: 
+      template: veos
+      num_interfaces: 9
+      interface:
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 411} 
+        Eth3: {int_id: 3, net_id: 4113}
+        Eth4: {int_id: 4, net_id: 41122}
+        Eth5: {int_id: 5, net_id: 41123}
+    POD4SW2: 
+      template: veos
+      num_interfaces: 9
+      interface:
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 412} 
+        Eth3: {int_id: 3, net_id: 4123}
+        Eth4: {int_id: 4, net_id: 41122}
+        Eth5: {int_id: 5, net_id: 41123}
+    POD4SW3: 
+      template: veos
+      num_interfaces: 9
+      interface:
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 4113}
+        Eth2: {int_id: 2, net_id: 4123}
+        Eth3: {int_id: 3, net_id: 4131}
+        Eth4: {int_id: 4, net_id: 4132}
+        Eth5: {int_id: 5, net_id: 4133}
+    POD5R1: 
+      template: veos 
+      num_interfaces: 9 
+      interface: 
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 511} 
+        Eth2: {int_id: 2, net_id: 512 }
+        Eth3: {int_id: 3, net_id: 5}
+    POD5SW1: 
+      template: veos
+      num_interfaces: 9
+      interface:
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 511} 
+        Eth3: {int_id: 3, net_id: 5113}
+        Eth4: {int_id: 4, net_id: 51122}
+        Eth5: {int_id: 5, net_id: 51123}
+    POD5SW2: 
+      template: veos
+      num_interfaces: 9
+      interface:
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 512} 
+        Eth3: {int_id: 3, net_id: 5123}
+        Eth4: {int_id: 4, net_id: 51122}
+        Eth5: {int_id: 5, net_id: 51123}
+    POD5SW3: 
+      template: veos
+      num_interfaces: 9
+      interface:
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 5113}
+        Eth2: {int_id: 2, net_id: 5123}
+        Eth3: {int_id: 3, net_id: 5131}
+        Eth4: {int_id: 4, net_id: 5132}
+        Eth5: {int_id: 5, net_id: 5133}
+    POD6R1: 
+      template: veos 
+      num_interfaces: 9 
+      interface: 
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 611} 
+        Eth2: {int_id: 2, net_id: 612 }
+        Eth3: {int_id: 3, net_id: 6}
+    POD6SW1: 
+      template: veos
+      num_interfaces: 9
+      interface:
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 611} 
+        Eth3: {int_id: 3, net_id: 6113}
+        Eth4: {int_id: 4, net_id: 61122}
+        Eth5: {int_id: 5, net_id: 61123}
+    POD6SW2: 
+      template: veos
+      num_interfaces: 9
+      interface:
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 612} 
+        Eth3: {int_id: 3, net_id: 6123}
+        Eth4: {int_id: 4, net_id: 61122}
+        Eth5: {int_id: 5, net_id: 61123}
+    POD6SW3: 
+      template: veos
+      num_interfaces: 9
+      interface:
+        Mgmt1: {int_id: 0, net_id: 1000}
+        Eth1: {int_id: 1, net_id: 6113}
+        Eth2: {int_id: 2, net_id: 6123}
+        Eth3: {int_id: 3, net_id: 6131}
+        Eth4: {int_id: 4, net_id: 6132}
+        Eth5: {int_id: 5, net_id: 6133}
+    POD1USER:
+      template: eve-gui-server
+      num_interfaces: 1
+      interface:
+        eth0: {int_id: 0, net_id: 131}
+    POD1SERVER:
+      template: eve-gui-server
+      num_interfaces: 1
+      interface:
+        eth0: {int_id: 0, net_id: 132}
+    POD1GUEST:
+      template: eve-gui-server
+      num_interfaces: 1
+      interface:
+        eth0: {int_id: 0, net_id: 133}
+    POD2USER:
+      template: eve-gui-server
+      num_interfaces: 1
+      interface:
+        eth0: {int_id: 0, net_id: 2131}
+    POD2SERVER:
+      template: eve-gui-server
+      num_interfaces: 1
+      interface:
+        eth0: {int_id: 0, net_id: 2132}
+    POD2GUEST:
+      template: eve-gui-server
+      num_interfaces: 1
+      interface:
+        eth0: {int_id: 0, net_id: 2133}
+    POD3USER:
+      template: eve-gui-server
+      num_interfaces: 1
+      interface:
+        eth0: {int_id: 0, net_id: 3131}
+    POD3SERVER:
+      template: eve-gui-server
+      num_interfaces: 1
+      interface:
+        eth0: {int_id: 0, net_id: 3132}
+    POD3GUEST:
+      template: eve-gui-server
+      num_interfaces: 1
+      interface:
+        eth0: {int_id: 0, net_id: 3133}
+    POD4USER:
+      template: eve-gui-server
+      num_interfaces: 1
+      interface:
+        eth0: {int_id: 0, net_id: 4131}
+    POD4SERVER:
+      template: eve-gui-server
+      num_interfaces: 1
+      interface:
+        eth0: {int_id: 0, net_id: 4132}
+    POD4GUEST:
+      template: eve-gui-server
+      num_interfaces: 1
+      interface:
+        eth0: {int_id: 0, net_id: 4133}
+    POD5USER:
+      template: eve-gui-server
+      num_interfaces: 1
+      interface:
+        eth0: {int_id: 0, net_id: 5131}
+    POD5SERVER:
+      template: eve-gui-server
+      num_interfaces: 1
+      interface:
+        eth0: {int_id: 0, net_id: 5132}
+    POD5GUEST:
+      template: eve-gui-server
+      num_interfaces: 1
+      interface:
+        eth0: {int_id: 0, net_id: 5133}
+    POD6USER:
+      template: eve-gui-server
+      num_interfaces: 1
+      interface:
+        eth0: {int_id: 0, net_id: 6131}
+    POD6SERVER:
+      template: eve-gui-server
+      num_interfaces: 1
+      interface:
+        eth0: {int_id: 0, net_id: 6132}
+    POD6GUEST:
+      template: eve-gui-server
+      num_interfaces: 1
+      interface:
+        eth0: {int_id: 0, net_id: 6133}
+    POD1ANSIBLE:
+      template: linux-ubuntu-desktop-20.04.1
+      num_interfaces: 1
+      interface:
+        e0: {int_id: 0, net_id: 1000}
+    POD2ANSIBLE:
+      template: linux-ubuntu-desktop-20.04.1
+      num_interfaces: 1
+      interface:
+        e0: {int_id: 0, net_id: 1000}  
+    POD3ANSIBLE:
+      template: linux-ubuntu-desktop-20.04.1
+      num_interfaces: 1
+      interface:
+        e0: {int_id: 0, net_id: 1000}  
+    POD4ANSIBLE:
+      template: linux-ubuntu-desktop-20.04.1
+      num_interfaces: 1
+      interface:
+        e0: {int_id: 0, net_id: 1000}  
+    POD5ANSIBLE:
+      template: linux-ubuntu-desktop-20.04.1
+      num_interfaces: 1
+      interface:
+        e0: {int_id: 0, net_id: 1000}  
+    POD6ANSIBLE:
+      template: linux-ubuntu-desktop-20.04.1
+      num_interfaces: 1
+      interface:
+        e0: {int_id: 0, net_id: 1000}                       
+    ISP:
+      template: c8000v
+      num_interfaces: 8
+      interface:
+        Gi1: {int_id: 0, net_id: 1}
+        Gi2: {int_id: 1, net_id: 2}
+        Gi3: {int_id: 2, net_id: 3}
+        Gi4: {int_id: 3, net_id: 4}
+        Gi5: {int_id: 4, net_id: 5}
+        Gi6: {int_id: 5, net_id: 6}
+        Gi8: {int_id: 7, net_id: 1000}
+
+network:
+    MGMT: {net_id: 1000, type: pnet4, visibility: 0, icon: "cloud_sm.png" }
+    POD1R1_to_POD1SW1: {net_id: 11, type: bridge, visibility: 0, icon: "lan.png" }
+    POD1R1_to_POD1SW2: {net_id: 12, type: bridge, visibility: 0, icon: "lan.png" }
+    POD1SW1_1_to_POD1SW2_1: {net_id: 1122, type: bridge, visibility: 0, icon: "lan.png" }
+    POD1SW1_2_to_POD1SW2_2: {net_id: 1123, type: bridge, visibility: 0, icon: "lan.png" } 
+    POD1SW1_to_POD1SW3: {net_id: 113, type: bridge, visibility: 0, icon: "lan.png" }
+    POD1SW2_to_POD1SW3: {net_id: 123, type: bridge, visibility: 0, icon: "lan.png" }
+    POD1SW3_to_POD1USER: {net_id: 131, type: bridge, visibility: 0, icon: "lan.png" }
+    POD1SW3_to_POD1SERVER: {net_id: 132, type: bridge, visibility: 0, icon: "lan.png" }
+    POD1SW3_to_POD1GUEST: {net_id: 133, type: bridge, visibility: 0, icon: "lan.png" }
+    POD2R1_to_POD2SW1: {net_id: 211, type: bridge, visibility: 0, icon: "lan.png" }
+    POD2R1_to_POD2SW2: {net_id: 212, type: bridge, visibility: 0, icon: "lan.png" }
+    POD2SW1_1_to_POD2SW2_1: {net_id: 21122, type: bridge, visibility: 0, icon: "lan.png" }
+    POD2SW1_2_to_POD2SW2_2: {net_id: 21123, type: bridge, visibility: 0, icon: "lan.png" } 
+    POD2SW1_to_POD2SW3: {net_id: 2113, type: bridge, visibility: 0, icon: "lan.png" }
+    POD2SW2_to_POD2SW3: {net_id: 2123, type: bridge, visibility: 0, icon: "lan.png" }
+    POD2SW3_to_POD2USER: {net_id: 2131, type: bridge, visibility: 0, icon: "lan.png" }
+    POD2SW3_to_POD2SERVER: {net_id: 2132, type: bridge, visibility: 0, icon: "lan.png" }
+    POD2SW3_to_POD2GUEST: {net_id: 2133, type: bridge, visibility: 0, icon: "lan.png" }
+    POD3R1_to_POD3SW1: {net_id: 311, type: bridge, visibility: 0, icon: "lan.png" }
+    POD3R1_to_POD3SW2: {net_id: 312, type: bridge, visibility: 0, icon: "lan.png" }
+    POD3SW1_1_to_POD3SW2_1: {net_id: 31122, type: bridge, visibility: 0, icon: "lan.png" }
+    POD3SW1_2_to_POD3SW2_2: {net_id: 31123, type: bridge, visibility: 0, icon: "lan.png" } 
+    POD3SW1_to_POD3SW3: {net_id: 3113, type: bridge, visibility: 0, icon: "lan.png" }
+    POD3SW2_to_POD3SW3: {net_id: 3123, type: bridge, visibility: 0, icon: "lan.png" }
+    POD3SW3_to_POD3USER: {net_id: 3131, type: bridge, visibility: 0, icon: "lan.png" }
+    POD3SW3_to_POD3SERVER: {net_id: 3132, type: bridge, visibility: 0, icon: "lan.png" }
+    POD3SW3_to_POD3GUEST: {net_id: 3133, type: bridge, visibility: 0, icon: "lan.png" }
+    POD4R1_to_POD4SW1: {net_id: 411, type: bridge, visibility: 0, icon: "lan.png" }
+    POD4R1_to_POD4SW2: {net_id: 412, type: bridge, visibility: 0, icon: "lan.png" }
+    POD4SW1_1_to_POD4SW2_1: {net_id: 41122, type: bridge, visibility: 0, icon: "lan.png" }
+    POD4SW1_2_to_POD4SW2_2: {net_id: 41123, type: bridge, visibility: 0, icon: "lan.png" } 
+    POD4SW1_to_POD4SW3: {net_id: 4113, type: bridge, visibility: 0, icon: "lan.png" }
+    POD4SW2_to_POD4SW3: {net_id: 4123, type: bridge, visibility: 0, icon: "lan.png" }
+    POD4SW3_to_POD4USER: {net_id: 4131, type: bridge, visibility: 0, icon: "lan.png" }
+    POD4SW3_to_POD4SERVER: {net_id: 4132, type: bridge, visibility: 0, icon: "lan.png" }
+    POD4SW3_to_POD4GUEST: {net_id: 4133, type: bridge, visibility: 0, icon: "lan.png" }
+    POD5R1_to_POD5SW1: {net_id: 511, type: bridge, visibility: 0, icon: "lan.png" }
+    POD5R1_to_POD5SW2: {net_id: 512, type: bridge, visibility: 0, icon: "lan.png" }
+    POD5SW1_1_to_POD5SW2_1: {net_id: 51122, type: bridge, visibility: 0, icon: "lan.png" }
+    POD5SW1_2_to_POD5SW2_2: {net_id: 51123, type: bridge, visibility: 0, icon: "lan.png" } 
+    POD5SW1_to_POD5SW3: {net_id: 5113, type: bridge, visibility: 0, icon: "lan.png" }
+    POD5SW2_to_POD5SW3: {net_id: 5123, type: bridge, visibility: 0, icon: "lan.png" }
+    POD5SW3_to_POD5USER: {net_id: 5131, type: bridge, visibility: 0, icon: "lan.png" }
+    POD5SW3_to_POD5SERVER: {net_id: 5132, type: bridge, visibility: 0, icon: "lan.png" }
+    POD5SW3_to_POD5GUEST: {net_id: 5133, type: bridge, visibility: 0, icon: "lan.png" }
+    POD6R1_to_POD6SW1: {net_id: 611, type: bridge, visibility: 0, icon: "lan.png" }
+    POD6R1_to_POD6SW2: {net_id: 612, type: bridge, visibility: 0, icon: "lan.png" }
+    POD6SW1_1_to_POD6SW2_1: {net_id: 61122, type: bridge, visibility: 0, icon: "lan.png" }
+    POD6SW1_2_to_POD6SW2_2: {net_id: 61123, type: bridge, visibility: 0, icon: "lan.png" } 
+    POD6SW1_to_POD6SW3: {net_id: 6113, type: bridge, visibility: 0, icon: "lan.png" }
+    POD6SW2_to_POD6SW3: {net_id: 6123, type: bridge, visibility: 0, icon: "lan.png" }
+    POD6SW3_to_POD6USER: {net_id: 6131, type: bridge, visibility: 0, icon: "lan.png" }
+    POD6SW3_to_POD6SERVER: {net_id: 6132, type: bridge, visibility: 0, icon: "lan.png" }
+    POD6SW3_to_POD6GUEST: {net_id: 6133, type: bridge, visibility: 0, icon: "lan.png" }
+    ISP_to_POD1R1: {net_id: 1, type: bridge, visibility: 0, icon: "lan.png" }
+    ISP_to_POD2R1: {net_id: 2, type: bridge, visibility: 0, icon: "lan.png" }
+    ISP_to_POD3R1: {net_id: 3, type: bridge, visibility: 0, icon: "lan.png" }
+    ISP_to_POD4R1: {net_id: 4, type: bridge, visibility: 0, icon: "lan.png" }
+    ISP_to_POD5R1: {net_id: 5, type: bridge, visibility: 0, icon: "lan.png" }
+    ISP_to_POD6R1: {net_id: 6, type: bridge, visibility: 0, icon: "lan.png" }
